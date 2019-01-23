@@ -7,4 +7,11 @@ class Comment extends Model{
 		$comments = $this->execReq($sql, array($idPost));
 		return $comments;
 	}
+
+	public function addComments($author, $comment, $idPost){
+		$sql = 'INSERT INTO comment(date_comment, comment, author, id_post) VALUES (?, ?, ?, ?)';
+			date_default_timezone_set('Europe/Paris');
+			$date = date("Y-m-d H:i:s");
+			$addComments = $this->execReq($sql, array($date, $comment, $author, $idPost));
+	}
 }

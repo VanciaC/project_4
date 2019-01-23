@@ -17,3 +17,19 @@
 
 <?php endforeach; ?>
 <br/>
+
+<hr/>
+
+<h3>Ajouter un commentaire</h3>
+<form method="POST" action="index.php?action=comment">
+	<p><label for="author">Votre pseudo</label> : <input type="text" name="author" id="author" required /></p>
+	<p>
+		<label for="comment">
+		Votre commentaire :
+		</label>
+		<br />
+		<textarea name="comment" id="comment" rows="10" cols="50" required></textarea>
+	</p>
+	 <input type="hidden" name="idPost" value="<?= $post['id'] ?>" />
+	<p><input type="submit" value="Envoyer"/></p>  
+</form>

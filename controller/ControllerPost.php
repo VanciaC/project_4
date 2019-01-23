@@ -20,4 +20,9 @@ class ControllerPost{
 		$view = new View("Post");
 		$view->generate(array('post' => $post, 'comments' => $comments));
 	}
+
+	public function comment($author, $comment, $idPost){
+		$this->comment->addComments($author, $comment, $idPost);
+		$this->post($idPost);
+	}
 }
