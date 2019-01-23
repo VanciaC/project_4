@@ -8,6 +8,7 @@ class Comment extends Model{
 		return $comments;
 	}
 
+	//add comments
 	public function addComments($author, $comment, $idPost){
 		$sql = 'INSERT INTO comment(date_comment, comment, author, id_post) VALUES (?, ?, ?, ?)';
 			date_default_timezone_set('Europe/Paris');
