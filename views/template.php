@@ -3,7 +3,8 @@
 		<meta charset="UTF-8"/>
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	    <link rel="stylesheet" href="style.css">
+	    <link rel="stylesheet" href="public/style.css">
+	    <meta name="viewport" content="width=device-width, user-scalable=no">
 		<title><?= $title?></title>
 	</head>
 	<body>
@@ -41,10 +42,10 @@
 			<!--Section 1-->
 			<section>
 				<div class="p-5" id="content">
-					<?= $content ?>
+					<?= $content; ?>
 				</div>
 			</section>
-			<footer class="bg-info text-white p-4">
+			<footer class="bg-light text-info p-2">
 				<p>Blog réalisé avec PHP, HTML5 et CSS.</p>
 			</footer>
 		</div>
