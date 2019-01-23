@@ -30,7 +30,7 @@
 				</div>
 				<div class="navbar navbar-dark bg-dark shadow-sm">
 					<div class="container d-flex justify-content-between">
-						<a href="#" class="navbar-brand d-flex align-items-center">
+						<a href="index.php" class="navbar-brand d-flex align-items-center">
 						<strong>Mon blog</strong>
 						</a>
 						<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">

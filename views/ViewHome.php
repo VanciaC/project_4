@@ -12,7 +12,7 @@
 			<p class="card-text text-justify"><?= htmlspecialchars(substr($post['content'], 0, 350)); ?>... <br/><br/><a href="<?= "index.php?action=post&id=".$post['id'] ?>">Lire la suite</a></p> 
 
 			<time><?= $post['date_creation']; ?></time>
-			<p><a href="<?="index.php?action=update&id=".$post['id']?>">Modifier</a></p>
+			<!-- <p><a href="<?="index.php?action=update&id=".$post['id']?>">Modifier</a></p>-->
 		</div>
 	</article>
 </div>
