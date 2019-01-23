@@ -1,7 +1,11 @@
 footer{
 	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 
 body{
-	
+	position: relative;
+	background-image: linear-gradient(to top, #2E4E54, #5A6668);
 }

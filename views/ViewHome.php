@@ -2,7 +2,7 @@
 
 <?php foreach ($posts as $post) : ?>
 <div class="container">
-	<article class="card">
+	<article class="card shadow-lg p-3 mb-5 bg-white rounded">
 		<div class="card-body">
 			<a href="<?= "index.php?action=post&id=".$post['id'] ?>">
 			<h3 class="card-title text-info text-center"><?= htmlspecialchars($post['title']); ?></h3>
