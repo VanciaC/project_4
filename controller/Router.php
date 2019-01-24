@@ -41,7 +41,7 @@ class Router{
 				else if($_GET['action'] === 'admin'){
 					if (!empty(htmlspecialchars($_POST['pseudo'])) AND !empty(htmlspecialchars($_POST['password']))){
 						$pseudo = $this->getParam($_POST, 'pseudo');
-						$password = $this->getParam($_POST, 'password');
+						$password = sha1($this->getParam($_POST, 'password'));
 						$user = $this->ctrlAdmin->user();
 											
 						if($user){
