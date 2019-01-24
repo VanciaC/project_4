@@ -19,9 +19,9 @@
 								</div>
 							<div class="col-sm-4 offset-md-1 py-4">
 								<h4 class="text-white">Connexion</h4>
-								<form class="form-inline">
-									<input class="form-control mr-sm-2 mb-2" type="text" placeholder="Votre pseudo" aria-label="Pseudo">
-									<input class="form-control mr-sm-2 mt-2" type="password" placeholder="Votre mot de passe" aria-label="Password">
+								<form class="form-inline" method="POST" action="index.php?action=admin">
+									<input class="form-control mr-sm-2 mb-2" type="text" name="pseudo" placeholder="Votre pseudo" aria-label="Pseudo" required>
+									<input class="form-control mr-sm-2 mt-2 " type="password" name="password" placeholder="Votre mot de passe" aria-label="Password" required>
 									<button class="btn btn-info mt-2" type="submit">Connexion</button>
 								</form>
 							</div>
