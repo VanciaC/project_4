@@ -41,12 +41,14 @@ class Router{
 				else if($_GET['action'] === 'admin'){
 					if (!empty(htmlspecialchars($_POST['pseudo'])) AND !empty(htmlspecialchars($_POST['password']))){
 						$pseudo = $this->getParam($_POST, 'pseudo');
-						$password = sha1($this->getParam($_POST, 'password'));
-						$user = $this->ctrlAdmin->user();
+						$password = ($this->getParam($_POST, 'password'));
+						$password_hash = password_hash($password, PASSWORD_DEFAULT);
+						$user = $this->ctrlAdmin->user($pseudo);
 											
 						if($user){
-							if ($password === $user['password']){
-								$this->ctrlAdmin->connection($pseudo, $password);
+							$correctPassword = password_verify($password, $user['password']);
+							if ($correctPassword){
+								$this->ctrlAdmin->connection($pseudo);
 							}
 							else{
 								throw new Exception("Identifiants incorrects.");

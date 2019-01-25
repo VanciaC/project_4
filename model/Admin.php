@@ -1,20 +1,19 @@
 <?php
-
 require_once('model/Model.php');
 
 class Admin extends Model{
 
-	public function getAdmin($pseudo, $password){
-
-		$sql = 'SELECT * FROM admin WHERE pseudo = ? AND password = ?';
-		$req = $this->execReq($sql, array($pseudo, $password));
+	public function getUser($pseudo){
+		$sql = 'SELECT id, password FROM admin WHERE pseudo = ?';
+		$req = $this->execReq($sql, array($pseudo));
 		$result = $req->fetch();
 		return $result;
 	}
 
-	public function getUser(){
-		$sql = 'SELECT * FROM admin';
-		$req = $this->execReq($sql);
+
+	public function getPseudo($pseudo){
+		$sql = 'SELECT pseudo FROM admin WHERE pseudo = ?';
+		$req = $this->execReq($sql, array($pseudo));
 		$result = $req->fetch();
 		return $result;
 	}

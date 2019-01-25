@@ -1,5 +1,4 @@
 <?php
-
 require_once('model/Admin.php');
 require_once('views/View.php');
 
@@ -9,15 +8,15 @@ class ControllerAdmin{
 
 	public function __construct(){
 		$this->admin = new Admin();
-	}
 
-	public function connection($pseudo, $password){
-		$admin = $this->admin->getAdmin($pseudo, $password);
+	}
+	public function connection($pseudo){
+		$admin = $this->admin->getPseudo($pseudo);
 		$view = new View("Admin");
 		$view->generate(array('admin' => $admin));
 	}
 
-	public function user(){
-		return $this->admin->getUser();
+	public function user($pseudo){
+		return $this->admin->getUser($pseudo);
 	}
 }
