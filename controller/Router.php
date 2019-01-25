@@ -57,6 +57,9 @@ class Router{
 							throw new Exception("Identifiants incorrect.");
 						}
 					}
+					else{
+						header('location: index.php');
+					}
 				}
 
 				else {
@@ -82,7 +85,7 @@ class Router{
 			return $array[$name];
 		}
 		else{
-			throw new Exception("Paramètre '$name' absent");
+			throw new Exception("Paramètre '$name' absent.");
 		}
 	}
 }
