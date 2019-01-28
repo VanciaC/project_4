@@ -18,14 +18,22 @@
 								<h4 class="text-white">A propos de moi</h4>
 								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat turpis sit amet lacus consectetur dapibus. Fusce metus nisl, iaculis a nulla sit amet, finibus fringilla elit. Suspendisse potenti. Phasellus ac ex tortor.</p>
 								</div>
-							<div class="col-sm-4 offset-md-1 py-4">
-								<h4 class="text-white">Connexion</h4>
-								<form class="form-inline" method="POST" action="index.php?action=admin">
-									<input class="form-control mr-sm-2 mb-2" type="text" name="pseudo" placeholder="Votre pseudo" aria-label="Pseudo" required>
-									<input class="form-control mr-sm-2 mt-2 " type="password" name="password" placeholder="Votre mot de passe" aria-label="Password" required>
-									<button class="btn btn-info mt-2" type="submit">Connexion</button>
-								</form>
-							</div>
+							<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
+								<div class="col-sm-4 offset-md-1 py-4">
+									<h4 class="text-white"><?= $_SESSION['admin']; ?></h4>
+									<a href="index.php?action=admin"><button class="btn btn-info mt-2" type="submit">Administration</button></a>
+									<a href="index.php?action=deconnexion"><button class="btn btn-info mt-2" type="submit">Déconnexion</button></a>
+								</div>
+							<?php else : ?>
+								<div class="col-sm-4 offset-md-1 py-4">
+									<h4 class="text-white">Connexion</h4>
+									<form class="form-inline" method="POST" action="index.php?action=admin">
+										<input class="form-control mr-sm-2 mb-2" type="text" name="pseudo" placeholder="Votre pseudo" aria-label="Pseudo" required>
+										<input class="form-control mr-sm-2 mt-2 " type="password" name="password" placeholder="Votre mot de passe" aria-label="Password" required>
+										<button class="btn btn-info mt-2" type="submit">Connexion</button>
+									</form>
+								</div>
+							<?php endif ?>
 						</div>
 					</div>
 				</div>

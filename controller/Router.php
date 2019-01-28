@@ -39,16 +39,20 @@ class Router{
 				}
 
 				else if($_GET['action'] === 'admin'){
-					if (!empty(htmlspecialchars($_POST['pseudo'])) AND !empty(htmlspecialchars($_POST['password']))){
-						$pseudo = $this->getParam($_POST, 'pseudo');
-						$password = ($this->getParam($_POST, 'password'));
+					if (isset($_POST['pseudo'])){
+						if (!empty(htmlspecialchars($_POST['pseudo'])) AND !empty(htmlspecialchars($_POST['password']))){
+							$pseudo = $this->getParam($_POST, 'pseudo');
+							$password = ($this->getParam($_POST, 'password'));
+						}
 						$password_hash = password_hash($password, PASSWORD_DEFAULT);
 						$user = $this->ctrlAdmin->user($pseudo);
 											
 						if($user){
 							$correctPassword = password_verify($password, $user['password']);
 							if ($correctPassword){
-								$this->ctrlAdmin->connection($pseudo);
+								session_start();
+								$_SESSION['admin'] = $pseudo;
+								$this->ctrlAdmin->connection($_SESSION['admin']);
 							}
 							else{
 								throw new Exception("Identifiants incorrects.");
@@ -60,8 +64,22 @@ class Router{
 						}
 					}
 					else{
-						header('location: index.php');
+						session_start();
+						if($_SESSION['admin']){
+							$this->ctrlAdmin->connection($_SESSION['admin']);
+						}
+						else{
+							header('location: index.php');
+						}
+						
 					}
+				}	
+
+				else if($_GET['action'] === 'deconnexion'){
+					session_start();
+					session_destroy();
+					header('Location: index.php');
+					exit();
 				}
 
 				else {

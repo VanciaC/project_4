@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php $this->title = "Mon blog - " . $post['title']; ?>
 
 <article class="card text-center shadow">
