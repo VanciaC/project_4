@@ -20,7 +20,7 @@
 								</div>
 							<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 								<div class="col-sm-4 offset-md-1 py-4">
-									<h4 class="text-white"><?= $_SESSION['admin']; ?></h4>
+									<h4 class="text-white"><?= ucfirst($_SESSION['admin']); ?></h4>
 									<a href="index.php?action=admin"><button class="btn btn-info mt-2" type="submit">Administration</button></a>
 									<a href="index.php?action=deconnexion"><button class="btn btn-info mt-2" type="submit">Déconnexion</button></a>
 								</div>
@@ -33,7 +33,7 @@
 										<button class="btn btn-info mt-2" type="submit">Connexion</button>
 									</form>
 								</div>
-							<?php endif ?>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

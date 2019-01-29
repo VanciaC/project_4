@@ -17,6 +17,13 @@
 <div class="container">
 	<p class="text-light"><span class="font-weight-bold text-white"><?= htmlspecialchars($comment['author']); ?> :</span>
 		<br/><?= htmlspecialchars($comment['comment']); ?>
+		<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
+			<br/>
+			<a href=""><i>Supprimer</i></a>
+		<?php else : ?>
+			<br/>
+			<a href=""><i>Signaler</i></a>
+		<?php endif; ?>
 	</p>
 	<hr/>
 </div>
