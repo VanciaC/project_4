@@ -7,7 +7,18 @@
 		<p class="card-text"><?= htmlspecialchars($post['content']); ?></p>
 	</div>
 	<div class="card-footer text-mutes">
-		<time><?= $post['date_creation']; ?></time>
+		<div class="row justify-content-end">
+			<div class="col-4">
+				<time><?= $post['date_creation']; ?></time>
+				<br/>
+			</div>
+			<div class="col-4">
+				<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
+					<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>"><i>Modifier</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="<?= "index.php?action=delete&id=".$post['id']; ?>" onclick="return confirm('Voulez-vous supprimer cet article?');"><i>Supprimer</i></a>
+				<?php endif; ?>
+			</div>
+		</div>
 	</div>
 </article>
 <hr/>
@@ -40,7 +51,7 @@
 			<label for="comment" class="text-white">Votre commentaire</label>
 			<textarea class="form-control" name="comment" id="comment" rows="10" cols="50" required></textarea>
 		</div>
-		 <input type="hidden" name="idPost" value="<?= $post['id'] ?>" />
+		<input type="hidden" name="idPost" value="<?= $post['id'] ?>" />
 		<button type="submit" class="btn btn-info">Envoyer</button>
 	</form>
 </div>

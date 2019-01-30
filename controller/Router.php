@@ -75,6 +75,49 @@ class Router{
 					}
 				}	
 
+				else if($_GET['action'] === 'update_page'){
+					session_start();
+					if($_SESSION['admin']){
+						if (isset($_GET['id'])) {
+							$idPost = intval($_GET['id']);
+							if($idPost != 0){
+								$this->ctrlPost->pageUpdate($idPost);
+							}
+							else {
+								header('location: index.php');
+							}
+						}	
+					}
+					else{
+						header('location: index.php');
+					}
+				}
+				else if($_GET['action'] === 'update'){
+					$title = $this->getParam($_POST, 'title');
+					$content = $this->getParam($_POST, 'content');
+					$idPost = $this->getParam($_POST, 'idPost');
+					$this->ctrlPost->update($idPost, $title, $content);
+				}
+
+				else if($_GET['action'] === 'delete'){
+					session_start();
+					if($_SESSION['admin']){
+						if (isset($_GET['id'])) {
+							$idPost = intval($_GET['id']);
+							if($idPost != 0){
+								$this->ctrlHome->delete($idPost); 
+								header('location: index.php');
+							}
+							else {
+								header('location: index.php');
+							}
+						}
+					}
+					else{
+						header('location: index.php');
+					}
+				}
+
 				else if($_GET['action'] === 'deconnexion'){
 					session_start();
 					session_destroy();
