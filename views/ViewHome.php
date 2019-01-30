@@ -9,16 +9,16 @@
 			<h3 class="card-title text-info text-center"><?= htmlspecialchars($post['title']); ?></h3>
 			</a>
 			<br/>
-
-			<p class="card-text text-justify"><?= htmlspecialchars(substr($post['content'], 0, 350)); ?>... <br/><br/><a href="<?= "index.php?action=post&id=".$post['id'] ?>">Lire la suite</a></p> 
-
-			<time><?= $post['date_creation']; ?></time>
+			<p class="card-text text-justify"><?= substr($post['content'], 0, 350); ?>... <br/><br/><a href="<?= "index.php?action=post&id=".$post['id'] ?>">Lire la suite</a></p> 
 			<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 				<br/><br/>
-				<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>"><i>Modifier</i></a>
+				<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>" class="font-italic">Modifier</a>
 				&nbsp;&nbsp;				
-				<a href="<?= "index.php?action=delete&id=".$post['id']; ?>" onclick="return confirm('Voulez-vous supprimer cet article?');"><i>Supprimer</i></a>
+				<a href="<?= "index.php?action=delete&id=".$post['id']; ?>" onclick="return confirm('Voulez-vous supprimer cet article?');" class="font-italic">Supprimer</a>
 			<?php endif; ?>
+			<br/>
+			<br/>
+			<p><time><?= $post['date_creation']; ?></time></p>
 		</div>
 	</article>
 </div>

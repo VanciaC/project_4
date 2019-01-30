@@ -4,7 +4,7 @@
 <article class="card text-center shadow">
 	<div class="card-body">
 		<h1 class="card-title text-info"><?= htmlspecialchars($post['title']); ?></h1>
-		<p class="card-text"><?= htmlspecialchars($post['content']); ?></p>
+		<p class="card-text"><?= $post['content']; ?></p>
 	</div>
 	<div class="card-footer text-mutes">
 		<div class="row justify-content-end">
@@ -14,8 +14,8 @@
 			</div>
 			<div class="col-4">
 				<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
-					<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>"><i>Modifier</i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="<?= "index.php?action=delete&id=".$post['id']; ?>" onclick="return confirm('Voulez-vous supprimer cet article?');"><i>Supprimer</i></a>
+					<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>" class="font-italic">Modifier</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="<?= "index.php?action=delete&id=".$post['id']; ?>" onclick="return confirm('Voulez-vous supprimer cet article?');" class="font-italic">Supprimer</a>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -30,10 +30,10 @@
 		<br/><?= htmlspecialchars($comment['comment']); ?>
 		<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 			<br/>
-			<a href=""><i>Supprimer</i></a>
+			<a href="" class="font-italic">Supprimer</a>
 		<?php else : ?>
 			<br/>
-			<a href=""><i>Signaler</i></a>
+			<a href="" class="font-italic">Signaler</a>
 		<?php endif; ?>
 	</p>
 	<hr/>

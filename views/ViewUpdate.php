@@ -1,5 +1,5 @@
 <div class="container">
-<h4 class="text-white text-center">Modifier l'article :&nbsp; "<i><?= $posts['title']; ?>"</i></h4>
+<h4 class="text-white text-center">Modifier l'article :&nbsp; <span class="font-italic">"<?= $posts['title']; ?>"</span></h4>
 <br/>
 <br/>
 <br/>
@@ -13,12 +13,14 @@
 	<hr/>
 	<div class="form-group">
 		<h5  class="text-white text-center"><label for="content">Contenu : </label></h5>
-		<textarea type="text" class="form-control text-justify" name="content" id="tcontent"  rows="15" cols="50" required>
+		<textarea type="text" class="form-control editme" name="content" id="tcontent"  rows="15" cols="50" required>
 			<?= $posts['content']; ?>
 		</textarea> 
 	</div>
 	<br/>
 	<hr/>
-	<input type="hidden" name="idPost" value="<?= $posts['id'] ?>" />
+	<input type="hidden" name="idPost" value="<?= $posts['id']; ?>" />
 	<button type="submit" class="btn btn-info btn-lg btn-block">Modifier</button>
+	<br/>
+	<br/>
 </form>

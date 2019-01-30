@@ -7,6 +7,8 @@
 	    <meta name="viewport" content="width=device-width, user-scalable=no">
 	    <link rel="stylesheet" href="public/style.css">
 		<title><?= $title?></title>
+		<script src=https://cloud.tinymce.com/5-testing/tinymce.min.js></script>
+  		<script>tinymce.init({ selector: "textarea.editme"});</script>
 	</head>
 	<body>
 		<div id="all">
