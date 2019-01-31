@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php $this->title = "Mon blog"; ?>
 
 <?php foreach ($posts as $post) : ?>
@@ -9,7 +8,8 @@
 			<h3 class="card-title text-info text-center"><?= htmlspecialchars($post['title']); ?></h3>
 			</a>
 			<br/>
-			<p class="card-text text-justify"><?= substr($post['content'], 0, 350); ?>... <br/><br/><a href="<?= "index.php?action=post&id=".$post['id'] ?>">Lire la suite</a></p> 
+			<p class="card-text text-justify"><?= substr($post['content'], 0, 500); ?>... <br/><br/></p> 
+			<a href="<?= "index.php?action=post&id=".$post['id'] ?>">Lire la suite</a>
 			<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 				<br/><br/>
 				<a href="<?= "index.php?action=update_page&id=".$post['id']; ?>" class="font-italic">Modifier</a>

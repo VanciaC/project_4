@@ -21,6 +21,7 @@ class Router{
 		try{
 			if (isset($_GET['action'])){
 				if($_GET['action'] === 'post'){
+					session_start();
 					if (isset($_GET['id'])) {
 						$idPost = intval($_GET['id']);
 						if($idPost != 0) {
@@ -32,6 +33,7 @@ class Router{
 					}
 				}
 				else if($_GET['action'] === 'comment'){
+					session_start();
 					$author = $this->getParam($_POST, 'author');
 					$comment = $this->getParam($_POST, 'comment');
 					$idPost = $this->getParam($_POST, 'idPost');
@@ -75,6 +77,13 @@ class Router{
 					}
 				}	
 
+				else if($_GET['action'] === 'add_page'){
+					$title = $this->getParam($_POST, 'title');
+					$content = $this->getParam($_POST, 'content');
+					$this->ctrlPost->addPost($title, $content);
+					header('location: index.php');
+				}
+
 				else if($_GET['action'] === 'update_page'){
 					session_start();
 					if($_SESSION['admin']){
@@ -105,8 +114,28 @@ class Router{
 						if (isset($_GET['id'])) {
 							$idPost = intval($_GET['id']);
 							if($idPost != 0){
-								$this->ctrlHome->delete($idPost); 
+								$this->ctrlPost->deletePost($idPost); 
 								header('location: index.php');
+							}
+							else {
+								header('location: index.php');
+							}
+						}
+					}
+					else{
+						header('location: index.php');
+					}
+				}
+
+				else if($_GET['action'] === 'delete_comment'){
+					session_start();
+					if($_SESSION['admin']){
+						if (isset($_GET['id_comment']) AND isset($_GET['id'])) {
+							$idComment = intval($_GET['id_comment']);
+							$idPost = intval($_GET['id']);
+							if($idComment != 0 AND $idPost != 0){
+								$this->ctrlPost->deleteComment($idComment);
+								$this->ctrlPost->post($idPost);
 							}
 							else {
 								header('location: index.php');
@@ -130,10 +159,12 @@ class Router{
 				}
 			}
 			else{
+				session_start();
 				$this->ctrlHome->home();
 			}
 		}
 		catch (Exception $e){
+			session_start();
 			$this->error($e->getMessage());
 		}
 	}

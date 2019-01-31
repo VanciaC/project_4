@@ -17,6 +17,13 @@ class Admin extends Model{
 		return $result;
 	}
 
+	public function addPost($title, $content){
+		$sql = 'INSERT INTO post(date_creation, title, content) VALUES (?, ?, ?)';
+		date_default_timezone_set('Europe/Paris');
+		$date = date("Y-m-d H:i:s");
+		$req = $this->execReq($sql, array($date, $title, $content));
+	}
+
 	public function updatePost($idPost, $title, $content){
 		$sql ='UPDATE post SET title = :title, content = :content WHERE id = :id';
 		$req = $this->execReq($sql, array('title' => $title, 'content' => $content, 'id' => $idPost));

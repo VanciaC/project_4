@@ -5,13 +5,11 @@ require_once('views/View.php');
 class ControllerAdmin{
 
 	private $admin;
-	private $post;
 
 	public function __construct(){
 		$this->admin = new Admin();
-		$this->post = new Post();
-
 	}
+
 	public function connection($pseudo){
 		$admin = $this->admin->getPseudo($pseudo);
 		$view = new View("Admin");

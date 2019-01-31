@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php $this->title = "Mon blog - " . $post['title']; ?>
 
 <article class="card text-center shadow">
@@ -30,7 +29,7 @@
 		<br/><?= htmlspecialchars($comment['comment']); ?>
 		<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 			<br/>
-			<a href="" class="font-italic">Supprimer</a>
+			<a href="<?= "index.php?action=delete_comment&id=".$post['id']."&id_comment=".$comment['id']; ?>" class="font-italic">Supprimer</a>
 		<?php else : ?>
 			<br/>
 			<a href="" class="font-italic">Signaler</a>

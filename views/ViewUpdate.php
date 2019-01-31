@@ -13,7 +13,7 @@
 	<hr/>
 	<div class="form-group">
 		<h5  class="text-white text-center"><label for="content">Contenu : </label></h5>
-		<textarea type="text" class="form-control editme" name="content" id="tcontent"  rows="15" cols="50" required>
+		<textarea type="text" class="form-control editme" name="content" id="content"  rows="15" cols="50" required>
 			<?= $posts['content']; ?>
 		</textarea> 
 	</div>
