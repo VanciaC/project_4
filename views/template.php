@@ -17,8 +17,12 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-8 col-md-7 py-4">
-								<h4 class="text-white">A propos de moi</h4>
-								<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat turpis sit amet lacus consectetur dapibus. Fusce metus nisl, iaculis a nulla sit amet, finibus fringilla elit. Suspendisse potenti. Phasellus ac ex tortor.</p>
+								<h4 class="text-white"> Jean Forteroche</h4>
+								<p class="text-muted">
+									Il débute comme acteur dans son adolescence, puis gagne en notoriété en apparaissant dans des films comme Le Ciel, les Oiseaux et... ta mère !, Ripoux 3, ou 3 zéros.
+									<br/>
+									Il est également connu pour avoir publié plusieurs ouvrages de vulgarisation sur l'histoire de France, dont Métronome : l'histoire de France au rythme du métro parisien , paru en 2009, ou Hexagone.
+								</p>
 								</div>
 							<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 								<div class="col-sm-4 offset-md-1 py-4">
@@ -42,7 +46,7 @@
 				<div class="navbar navbar-dark bg-dark shadow-sm">
 					<div class="container d-flex justify-content-between">
 						<a href="index.php" class="navbar-brand d-flex align-items-center">
-						<strong>Mon blog</strong>
+						<strong>Billet simple pour l'Alaska</strong>
 						</a>
 						<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
