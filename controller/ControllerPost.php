@@ -51,4 +51,13 @@ class ControllerPost{
 	public function deleteComment($idComment){
 		$this->admin->deleteComment($idComment);
 	}
+
+	public function report($idPost, $idComment, $pseudo, $comment){
+		$this->post->addReport($idComment, $pseudo, $comment);
+		$this->post($idPost);
+	}
+
+	public function deleteReport($idComment){
+		$this->admin->deleteReport($idComment);
+	}
 }

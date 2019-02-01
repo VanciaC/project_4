@@ -29,10 +29,10 @@
 		<br/><?= htmlspecialchars($comment['comment']); ?>
 		<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 			<br/>
-			<a href="<?= "index.php?action=delete_comment&id=".$post['id']."&id_comment=".$comment['id']; ?>" class="font-italic">Supprimer</a>
+			<a href="<?= "index.php?action=delete_comment&id=".$post['id']."&id_comment=".$comment['id']; ?>" onclick="return confirm('Voulez-vous supprimer ce commentaire?');" class="font-italic">Supprimer</a>
 		<?php else : ?>
 			<br/>
-			<a href="" class="font-italic">Signaler</a>
+			<a href="<?= "index.php?action=report&id=".$post['id']."&id_comment=".$comment['id']."&pseudo=".$comment['author']."&comment=".$comment['comment']; ?>" onclick="return confirm('Voulez-vous signaler ce commentaire?');" class="font-italic">Signaler</a>
 		<?php endif; ?>
 	</p>
 	<hr/>
@@ -48,7 +48,7 @@
 		</div>
 		<div class="form-group">
 			<label for="comment" class="text-white">Votre commentaire</label>
-			<textarea class="form-control" name="comment" id="comment" rows="10" cols="50" required></textarea>
+			<textarea class="form-control" name="comment" id="comment" rows="2" cols="50" required></textarea>
 		</div>
 		<input type="hidden" name="idPost" value="<?= $post['id'] ?>" />
 		<button type="submit" class="btn btn-info">Envoyer</button>

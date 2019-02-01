@@ -20,4 +20,9 @@
 				throw new Exception("Aucun billet ne correspond à l'identifiant '$idPost'");
 			}
 		}
+
+		public function addReport($idComment, $pseudo, $comment){
+			$sql = 'INSERT INTO report(id_comment, pseudo, comment) VALUES (?, ?, ?)';
+			$req = $this->execReq($sql, array($idComment, $pseudo, $comment));
+		}
 	}

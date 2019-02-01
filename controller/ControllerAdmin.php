@@ -12,8 +12,9 @@ class ControllerAdmin{
 
 	public function connection($pseudo){
 		$admin = $this->admin->getPseudo($pseudo);
+		$reports = $this->admin->getReports();
 		$view = new View("Admin");
-		$view->generate(array('admin' => $admin));
+		$view->generate(array('admin' => $admin, 'reports' => $reports));
 	}
 
 	public function user($pseudo){

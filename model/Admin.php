@@ -38,4 +38,15 @@ class Admin extends Model{
 		$sql = 'DELETE FROM comment WHERE id = ?';
 		$req = $this->execReq($sql, array($idComment));
 	}
+
+	public function getReports(){
+		$sql = 'SELECT * FROM report ORDER BY id LIMIT 0, 10';
+		$req = $this->execReq($sql);
+		return $req;
+	}
+
+	public function deleteReport($idComment){
+		$sql = 'DELETE FROM report WHERE id_comment = ?';
+		$req = $this->execReq($sql, array($idComment));
+	}
 }

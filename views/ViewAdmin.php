@@ -25,5 +25,28 @@
 	</div>
 	<div class="badge badge-light text-wrap col-12 p-5 mb-5">
 		<h3 class="text-info text-uppercase font-weight-bold">Gestion des commentaires</h3>
+		<br/>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+				    <th scope="col">Pseudo</th>
+				    <th scope="col">Commentaire</th>
+				    <th scope="col">Réponse</th>
+				</tr>
+			</thead>
+			<?php foreach ($reports as $report): ?>
+			<tbody>
+				<tr>
+					<td><?= $report['pseudo']; ?></td>
+					<td><?= $report['comment']; ?></td>
+					<td>
+						<a href="<?= "index.php?action=delete_report&id_comment=".$report['id_comment']; ?>">Supprimer</a>
+						<br/>
+						<a href="<?= "index.php?action=cancel_report&id_comment=".$report['id_comment']; ?>">Annuler</a>
+					</td>
+				</tr>
+			</tbody>
+			<?php endforeach; ?>
+		</table>
 	</div>
 </div>

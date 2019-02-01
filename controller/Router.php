@@ -102,10 +102,16 @@ class Router{
 					}
 				}
 				else if($_GET['action'] === 'update'){
-					$title = $this->getParam($_POST, 'title');
-					$content = $this->getParam($_POST, 'content');
-					$idPost = $this->getParam($_POST, 'idPost');
-					$this->ctrlPost->update($idPost, $title, $content);
+					session_start();
+					if($_SESSION['admin']){
+						$title = $this->getParam($_POST, 'title');
+						$content = $this->getParam($_POST, 'content');
+						$idPost = $this->getParam($_POST, 'idPost');
+						$this->ctrlPost->update($idPost, $title, $content);
+					}
+					else{
+						header('location: index.php');
+					}
 				}
 
 				else if($_GET['action'] === 'delete'){
@@ -135,6 +141,7 @@ class Router{
 							$idPost = intval($_GET['id']);
 							if($idComment != 0 AND $idPost != 0){
 								$this->ctrlPost->deleteComment($idComment);
+								$this->ctrlPost->deleteReport($idComment);
 								$this->ctrlPost->post($idPost);
 							}
 							else {
@@ -144,6 +151,63 @@ class Router{
 					}
 					else{
 						header('location: index.php');
+					}
+				}
+
+				else if($_GET['action'] === 'report'){
+					if (isset($_GET['id']) AND isset($_GET['id_comment']) AND isset($_GET['pseudo']) AND isset($_GET['comment'])){
+						$idPost = intval($_GET['id']);
+						$idComment = intval($_GET['id_comment']);
+						$pseudo = htmlspecialchars($_GET['pseudo']);
+						$comment = htmlspecialchars($_GET['comment']);
+						if($idComment != 0 AND $idPost != 0){
+							$this->ctrlPost->report($idPost, $idComment, $pseudo, $comment);
+						}
+						else{
+							header('location: index.php');
+						}
+					}
+					else{
+						header('location: index.php');
+					}
+				}
+
+				else if($_GET['action'] === 'delete_report'){
+					session_start();
+					if($_SESSION['admin']){
+						if (isset($_GET['id_comment'])) {
+							$idComment = intval($_GET['id_comment']);
+							if($idComment != 0){
+								$this->ctrlPost->deleteComment($idComment);
+								$this->ctrlPost->deleteReport($idComment);
+								$this->ctrlAdmin->connection($_SESSION['admin']);
+							}
+							else{
+								header('location: index.php');
+							}
+						}
+						else{
+							header('location: index.php');
+						}
+					}
+				}
+
+				else if($_GET['action'] === 'cancel_report'){
+					session_start();
+					if($_SESSION['admin']){
+						if (isset($_GET['id_comment'])) {
+							$idComment = intval($_GET['id_comment']);
+							if($idComment != 0){
+								$this->ctrlPost->deleteReport($idComment);
+								$this->ctrlAdmin->connection($_SESSION['admin']);
+							}
+							else{
+								header('location: index.php');
+							}
+						}
+						else{
+							header('location: index.php');
+						}
 					}
 				}
 
