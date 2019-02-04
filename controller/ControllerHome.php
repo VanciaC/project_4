@@ -11,9 +11,10 @@ class ControllerHome{
 		$this->post = new Post();
 	}
 
-	public function home(){
-		$posts = $this->post->getPosts();
+	public function home($currentPage){
+		$posts = $this->post->getPosts($currentPage);
+		$totalPages = $this->post->totalPages();
 		$view = new View("Home");
-		$view->generate(array('posts' => $posts));
+		$view->generate(array('posts' => $posts, 'totalPages' => $totalPages));
 	}
 }

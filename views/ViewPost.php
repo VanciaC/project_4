@@ -38,6 +38,13 @@
 	<hr/>
 </div>
 <?php endforeach; ?>
+<ul class="pagination justify-content-center">
+	<?php for($i=1; $i<=$totalPages; $i++){
+		echo '<li class="page-item"><a class="page-link" href="index.php?action=post&id='.$post['id'].'&page='.$i.'">'.$i.' </a></li>';
+	}
+	?>
+</ul>
+<hr/>
 <br/>
 <div class="container">
 	<h5 class="text-center text-white">Ajouter un commentaire</h5>

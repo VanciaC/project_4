@@ -22,5 +22,14 @@
 		</div>
 	</article>
 </div>
-<hr/>
+<br/>
 <?php endforeach; ?>
+<hr/>
+<ul class="pagination justify-content-center">
+	<?php for($i=1; $i<=$totalPages; $i++){
+		echo '<li class="page-item"><a class="page-link" href="index.php?page='.$i.'">Page '.$i.' </a></li>';
+	}
+	?>
+</ul>
+<hr/>
+<br/>

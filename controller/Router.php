@@ -25,19 +25,28 @@ class Router{
 					if (isset($_GET['id'])) {
 						$idPost = intval($_GET['id']);
 						if($idPost != 0) {
-							$this->ctrlPost->post($idPost);
+							if(isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page'] > 0){
+								$_GET['page'] = intval(($_GET['page']));
+								$currentPage = ($_GET['page']);
+							}
+							else{
+								$currentPage = 1;
+							}
+							$this->ctrlPost->post($idPost, $currentPage);
 						}
 						else {
 							throw new Exception("Identifiant de billet non valide");
 						}
 					}
 				}
+
 				else if($_GET['action'] === 'comment'){
 					session_start();
+					$currentPage = 1;
 					$author = $this->getParam($_POST, 'author');
 					$comment = $this->getParam($_POST, 'comment');
 					$idPost = $this->getParam($_POST, 'idPost');
-					$this->ctrlPost->comment($author, $comment, $idPost);
+					$this->ctrlPost->comment($author, $comment, $idPost, $currentPage);
 				}
 
 				else if($_GET['action'] === 'admin'){
@@ -104,10 +113,10 @@ class Router{
 				else if($_GET['action'] === 'update'){
 					session_start();
 					if($_SESSION['admin']){
-						$title = $this->getParam($_POST, 'title');
+						$currentPage = 1;						$title = $this->getParam($_POST, 'title');
 						$content = $this->getParam($_POST, 'content');
 						$idPost = $this->getParam($_POST, 'idPost');
-						$this->ctrlPost->update($idPost, $title, $content);
+						$this->ctrlPost->update($idPost, $title, $content, $currentPage);
 					}
 					else{
 						header('location: index.php');
@@ -139,10 +148,11 @@ class Router{
 						if (isset($_GET['id_comment']) AND isset($_GET['id'])) {
 							$idComment = intval($_GET['id_comment']);
 							$idPost = intval($_GET['id']);
+							$currentPage = 1;
 							if($idComment != 0 AND $idPost != 0){
 								$this->ctrlPost->deleteComment($idComment);
 								$this->ctrlPost->deleteReport($idComment);
-								$this->ctrlPost->post($idPost);
+								$this->ctrlPost->post($idPost, $currentPage);
 							}
 							else {
 								header('location: index.php');
@@ -160,8 +170,9 @@ class Router{
 						$idComment = intval($_GET['id_comment']);
 						$pseudo = htmlspecialchars($_GET['pseudo']);
 						$comment = htmlspecialchars($_GET['comment']);
+						$currentPage = 1;
 						if($idComment != 0 AND $idPost != 0){
-							$this->ctrlPost->report($idPost, $idComment, $pseudo, $comment);
+							$this->ctrlPost->report($idPost, $idComment, $pseudo, $comment, $currentPage);
 						}
 						else{
 							header('location: index.php');
@@ -224,7 +235,14 @@ class Router{
 			}
 			else{
 				session_start();
-				$this->ctrlHome->home();
+				if (isset($_GET['page']) AND $_GET['page'] > 0){
+					$_GET['page'] = intval(($_GET['page']));
+					$currentPage = ($_GET['page']);
+				}
+				else{
+					$currentPage = 1;
+				}
+				$this->ctrlHome->home($currentPage);
 			}
 		}
 		catch (Exception $e){

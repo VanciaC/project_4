@@ -17,11 +17,12 @@ class ControllerPost{
 		$this->admin = new Admin();
 	}
 	//methods for post
-	public function post($idPost){
+	public function post($idPost, $currentPage){
 		$post = $this->post->getPost($idPost);
-		$comments = $this->comment->getComments($idPost);
+		$comments = $this->comment->getComments($idPost, $currentPage);
+		$totalPages = $this->comment->totalPages($idPost);
 		$view = new View("Post");
-		$view->generate(array('post' => $post, 'comments' => $comments));
+		$view->generate(array('post' => $post, 'comments' => $comments, 'totalPages' => $totalPages));
 	}
 	public function pageUpdate($idPost){
 		$posts = $this->post->getPost($idPost);
@@ -29,9 +30,9 @@ class ControllerPost{
 		$view->generate(array('posts' => $posts));
 	}
 
-	public function update($idPost, $title, $content){
+	public function update($idPost, $title, $content, $currentPage){
 		$this->admin->updatePost($idPost, $title, $content);
-		$this->post($idPost);
+		$this->post($idPost, $currentPage);
 	}
 
 	public function deletePost($idPost){
@@ -43,18 +44,18 @@ class ControllerPost{
 	}
 
 	//methods for comments
-	public function comment($author, $comment, $idPost){
+	public function comment($author, $comment, $idPost, $currentPage){
 		$this->comment->addComments($author, $comment, $idPost);
-		$this->post($idPost);
+		$this->post($idPost, $currentPage);
 	}
 
 	public function deleteComment($idComment){
 		$this->admin->deleteComment($idComment);
 	}
 
-	public function report($idPost, $idComment, $pseudo, $comment){
+	public function report($idPost, $idComment, $pseudo, $comment, $currentPage){
 		$this->post->addReport($idComment, $pseudo, $comment);
-		$this->post($idPost);
+		$this->post($idPost, $currentPage);
 	}
 
 	public function deleteReport($idComment){
