@@ -5,7 +5,7 @@
 		<h1 class="card-title text-info"><?= htmlspecialchars($post['title']); ?></h1>
 		<p class="card-text"><?= $post['content']; ?></p>
 	</div>
-	<div class="card-footer text-mutes">
+	<div class="card-footer bg-light text-mutes">
 		<div class="row justify-content-end">
 			<div class="col-4">
 				<time><?= $post['date_creation']; ?></time>

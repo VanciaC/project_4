@@ -19,9 +19,7 @@
 							<div class="col-sm-8 col-md-7 py-4">
 								<h4 class="text-white"> Jean Forteroche</h4>
 								<p class="text-muted">
-									Il débute comme acteur dans son adolescence, puis gagne en notoriété en apparaissant dans des films comme Le Ciel, les Oiseaux et... ta mère !, Ripoux 3, ou 3 zéros.
-									<br/>
-									Il est également connu pour avoir publié plusieurs ouvrages de vulgarisation sur l'histoire de France, dont Métronome : l'histoire de France au rythme du métro parisien , paru en 2009, ou Hexagone.
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur molestie, elit sed sodales dapibus, turpis lectus consectetur metus, eget fringilla ante tortor et purus. Maecenas ac hendrerit dolor, ut interdum dui. In eleifend pellentesque justo, sit amet consectetur justo dignissim eget. Phasellus pulvinar, massa at pretium cursus, metus nulla placerat ante, id aliquet elit orci id leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ut gravida metus, accumsan hendrerit mauris. 
 								</p>
 								</div>
 							<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
@@ -54,11 +52,8 @@
 					</div>
 				</div>
 			</header>
-			<!--Section 1-->
-			<section>
-				<div class="p-5" id="content">
-					<?= $content; ?>
-				</div>
+			<section class="col-md-12 p-5">
+				<?= $content; ?>
 			</section>
 			<footer class="bg-light text-info p-2">
 				<p>Blog réalisé avec PHP, HTML5 et CSS.</p>
