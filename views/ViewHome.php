@@ -1,6 +1,6 @@
 <?php $this->title = "Mon blog"; ?>
 <div class="row">
-	<div class="col-sm-3">
+	<div class="col-md-3">
 		<aside>
 			<div class="card p-2">
 				<img src="public/img/alaska.jpg" class="card img-fluid" alt="Alaska image">
@@ -16,8 +16,10 @@
 				 </div>
 			</div>
 		</aside>
+		<br/>
+		<br/>
 	</div>
-	<div class="col-sm-9">
+	<div class="col-md-9">
 		<?php foreach ($posts as $post) : ?>
 			<article class="card shadow-lg p-3 mb-5 bg-white rounded">
 				<div class="card-body">
