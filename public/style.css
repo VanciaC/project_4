@@ -11,7 +11,10 @@ body, html{
 	min-height: 100%;
 	margin: 0;
 	position: relative;
-	background-image: linear-gradient(to top, #2E4E54, #5A6668);
+	background-image: url('img/background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 footer{

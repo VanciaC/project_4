@@ -45,7 +45,7 @@
 		<hr/>
 		<ul class="pagination justify-content-center">
 			<?php for($i=1; $i<=$totalPages; $i++){
-				echo '<li class="page-item"><a class="page-link" href="index.php?page='.$i.'">Page '.$i.' </a></li>';
+				echo '<li class="page-item shadow-lg bg-white rounded"><a class="page-link" href="index.php?page='.$i.'">Page '.$i.' </a></li>';
 			}
 			?>
 		</ul>

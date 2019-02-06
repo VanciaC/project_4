@@ -22,10 +22,11 @@
 </article>
 <hr/>
 
-<h5 class="text-center text-white">Commentaires</h5>
+<h4 class="text-center font-weight-bold text-info">Commentaires</h4>
+<br/>
 <?php foreach ($comments as $comment): ?>
 <div class="container">
-	<p class="text-light"><span class="font-weight-bold text-white"><?= htmlspecialchars($comment['author']); ?> :</span>
+	<p class="shadow-lg p-3 mb-5 bg-white rounded text-info"><span class="font-weight-bold text-info"><?= htmlspecialchars($comment['author']); ?> :</span>
 		<br/><?= htmlspecialchars($comment['comment']); ?>
 		<?php if(isset($_SESSION['admin']) AND !empty($_SESSION['admin'])) :?>
 			<br/>
@@ -47,14 +48,14 @@
 <hr/>
 <br/>
 <div class="container">
-	<h5 class="text-center text-white">Ajouter un commentaire</h5>
+	<h4 class="text-center font-weight-bold text-info">Ajouter un commentaire</h4>
 <br/>
 	<form method="POST" action="index.php?action=comment">
 		<div class="form-group">
-			<label for="author" class="text-white">Votre pseudo</label><input type="text" class="form-control" name="author" id="author" required />
+			<label for="author" class="shadow-lg p-2 bg-light rounded text-info">Votre pseudo</label><input type="text" class="form-control" name="author" id="author" required />
 		</div>
 		<div class="form-group">
-			<label for="comment" class="text-white">Votre commentaire</label>
+			<label for="comment" class="shadow-lg p-2 bg-light rounded text-info">Votre commentaire</label>
 			<textarea class="form-control" name="comment" id="comment" rows="2" cols="50" required></textarea>
 		</div>
 		<input type="hidden" name="idPost" value="<?= $post['id'] ?>" />
