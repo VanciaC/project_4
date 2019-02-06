@@ -1,4 +1,4 @@
-<?php $this->title = "Mon blog"; ?>
+<?php $this->title = "Bilet simple pour l'Alaska - Jean Forteroche"; ?>
 <div class="row">
 	<div class="col-lg-3">
 		<aside>
