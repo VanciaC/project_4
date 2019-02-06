@@ -7,6 +7,7 @@
 	    <meta name="viewport" content="width=device-width, user-scalable=no">
 	    <link rel="stylesheet" href="public/style.css">
 		<title><?= $title?></title>
+		<meta name="description" content="Blog de Jean Forteroche : Billet simple pour l'Alaska. Projet OpenClassrooms - Developpeur junior." />
 		<script src=https://cloud.tinymce.com/5-testing/tinymce.min.js></script>
   		<script>tinymce.init({ selector: "textarea.editme"});</script>
 	</head>
