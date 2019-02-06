@@ -1,4 +1,4 @@
-<?php $this->title = "Mon blog - " . $post['title']; ?>
+<?php $this->title = "Bilet simple pour l'Alaska - " . $post['title']; ?>
 
 <article class="card text-center shadow">
 	<div class="card-body">
