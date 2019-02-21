@@ -15,7 +15,7 @@
 	<div class="row" id="content">
 		<div class="col-lg-3">
 			<aside>
-				<div class="card p-2">
+				<div class="card card-home p-2">
 					<img src="public/img/alaska.jpg" class="card img-fluid" alt="Alaska image">
 					<div class="card-body">
 					    <h4 class="card-title text-info text-center">Billet simple pour l'Alaska</h4>
@@ -34,7 +34,7 @@
 		</div>
 		<div class="col-lg-9">
 			<?php foreach ($posts as $post) : ?>
-				<article class="card shadow-lg p-3 mb-5 bg-white rounded">
+				<article class="card card-home shadow-lg p-3 mb-5 bg-white rounded">
 					<div class="card-body">
 						<a href="<?= "index.php?action=post&id=".$post['id']; ?>">
 						<h3 class="card-title text-info text-center"><?= htmlspecialchars($post['title']); ?></h3>

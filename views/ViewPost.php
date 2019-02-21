@@ -1,6 +1,6 @@
 <?php $this->title = "Bilet simple pour l'Alaska - " . $post['title']; ?>
 <div class="col-md-12 p-5">
-	<article class="card text-center shadow">
+	<article class="card card-post text-center shadow">
 		<div class="card-body">
 			<h1 class="card-title text-info"><?= htmlspecialchars($post['title']); ?></h1>
 			<p class="card-text"><?= $post['content']; ?></p>
@@ -22,7 +22,7 @@
 	</article>
 	<hr/>
 
-	<h4 class="text-center font-weight-bold text-info">Commentaires</h4>
+	<h4 class="text-center font-weight-bold text-white">Commentaires</h4>
 	<br/>
 	<?php foreach ($comments as $comment): ?>
 	<div class="container">
@@ -48,7 +48,7 @@
 	<hr/>
 	<br/>
 	<div class="container">
-		<h4 class="text-center font-weight-bold text-info">Ajouter un commentaire</h4>
+		<h4 class="text-center font-weight-bold text-white">Ajouter un commentaire</h4>
 	<br/>
 		<form method="POST" action="index.php?action=comment">
 			<div class="form-group">

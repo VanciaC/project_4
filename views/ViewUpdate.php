@@ -8,7 +8,7 @@
 	<form action="index.php?action=update" method="POST">
 		<div class="form-group">
 			<h5  class="text-white text-center"><label for="title">Titre : </label></h5>
-			<input type="text" class="form-control text-center" name="title" id="title" value="<?= $posts['title']; ?>" required />
+			<input type="text" class="form-control text-center" name="title" id="title_update" value="<?= $posts['title']; ?>" required />
 		</div>
 		<br/>
 		<hr/>

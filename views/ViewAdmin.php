@@ -17,7 +17,7 @@
 						<form action="index.php?action=add_page" method="POST">
 							<div class="form-group">
 								<h5  class="text-info text-center"><label for="title">Titre : </label></h5>
-								<input type="text" class="form-control text-center" name="title" id="title" value="Titre..." required />
+								<input type="text" class="form-control text-center" name="title" id="title_admin" value="Titre..." required />
 							</div>
 							<br/>
 							<hr/>
