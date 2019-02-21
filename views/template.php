@@ -53,7 +53,7 @@
 					</div>
 				</div>
 			</header>
-			<section class="col-md-12 p-5">
+			<section>
 				<?= $content; ?>
 			</section>
 			<footer class="bg-light text-info p-2">
